@@ -19,7 +19,7 @@ resource  "google_compute_instance" "myvm1" {
         }
 }
 
-resource  "google_compute_instance" "myvm1" {
+resource  "google_compute_instance" "myvm2" {
         name = "mysecondvm"
         machine_type = "f1-micro"
         zone = "us-central1-a"
