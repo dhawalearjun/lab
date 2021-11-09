@@ -1,11 +1,20 @@
 provider "google" {
-        project = "reflected-agent-331603"
+        project = var.project
         region = "us-central1"
+}
+
+variable "project" {
+    type = string
+}
+
+variable "mt" {
+    type = string
+    default = "f1-micro"
 }
 
 resource  "google_compute_instance" "myvm1" {
         name = "myfirstvm"
-        machine_type = "f1-micro"
+        machine_type = var.mt
         zone = "us-central1-a"
         network_interface {
                 network = "default"
@@ -21,7 +30,7 @@ resource  "google_compute_instance" "myvm1" {
 
 resource  "google_compute_instance" "myvm2" {
         name = "mysecondvm"
-        machine_type = "f1-micro"
+        machine_type = var.mt
         zone = "us-central1-a"
         network_interface {
                 network = "default"
